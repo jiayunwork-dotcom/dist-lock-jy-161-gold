@@ -405,6 +405,7 @@ func NewRaftManager(nodeConfig NodeConfig, config lock.Config, logger *zap.Logge
 	raftConfig.LocalID = raft.ServerID(nodeConfig.NodeID)
 	raftConfig.ElectionTimeout = config.RaftElectionTimeoutMax
 	raftConfig.HeartbeatTimeout = config.RaftElectionTimeoutMin
+	raftConfig.LeaderLeaseTimeout = config.RaftElectionTimeoutMin
 	raftConfig.SnapshotInterval = config.RaftSnapshotInterval
 	raftConfig.SnapshotThreshold = 10000
 	raftConfig.NotifyCh = rm.notifyCh
